@@ -1,3 +1,5 @@
+
+{% if config.theme.google_adsense %}
 <div class='code-block code-block-2' style='margin: 8px 0; clear: both;'>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -5,7 +7,7 @@
 
 <ins class="adsbygoogle"
      style="display:block"
-     data-ad-client="ca-pub-0810613228728448"
+     data-ad-client="{{ config.theme.google_adsense }}"
      data-ad-slot="7398393949"
      data-ad-format="link"></ins>
 <script>
@@ -14,6 +16,7 @@
 
 </script>
 </div>
+{% endif %}
                     
 
                     <div class="site-content-wrapper clearfix">
@@ -67,26 +70,21 @@
 
             {{ page.content }}
 
+{% if config.theme.google_adsense %}
 <div class='code-block code-block-1' style='margin: 8px 0; clear: both;'>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <!-- freedompatriot1 -->
 
 <ins class="adsbygoogle"
-
      style="display:block"
-
-     data-ad-client="ca-pub-0810613228728448"
-
+     data-ad-client="{{ config.theme.google_adsense }}"
      data-ad-slot="4100177140"
-
      data-ad-format="auto"></ins>
-
 <script>
-
 (adsbygoogle = window.adsbygoogle || []).push({});
-
 </script></div>
+{% endif %}
 
 <div class="sharedaddy sd-sharing-enabled">
 <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
