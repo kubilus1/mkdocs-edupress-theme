@@ -1,0 +1,27 @@
+{% include 'header.html' %}
+
+	<div id="site-main" class="content-home">
+		<div class="wrapper wrapper-main clearfix">
+			<div class="wrapper-frame clearfix">
+				<main id="site-content" class="site-main" role="main">
+
+
+                        {% if page and page.meta.homepage %}
+                            {% include 'home.html' %}
+                        {% else %}
+                            {% include 'post.html' %}
+                        {% endif %}
+
+            
+            </main><!-- #site-content -->
+
+			{% include 'sidebar.html' %}
+            
+            <?php get_sidebar(); ?>
+        
+        </div><!-- .wrapper-frame -->
+    
+    </div><!-- .wrapper .wrapper-main -->
+
+</div><!-- #site-main -->
+{% include 'footer.html' %}

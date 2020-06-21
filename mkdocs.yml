@@ -1,0 +1,12 @@
+site_name: Mkdocs Edupress Theme 
+site_description: Edupress theme from Wordpress translated to mkdocs 
+site_url: https://kubilus1.github.io/mkdocs-edupress-theme/
+docs_dir: docs
+theme:
+    name: edupress
+
+plugins:
+  - search
+  - datesort
+  - paginate:
+      max_items: 6

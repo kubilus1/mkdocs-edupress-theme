@@ -1,0 +1,99 @@
+
+					<div class="site-content-wrapper clearfix">
+						<p class="widget-title">Recent Posts</p>						
+						<ul id="recent-posts" class="ilovewp-posts ilovewp-posts-archive clearfix">
+
+							<div class='code-block code-block-2' style='margin: 8px 0; clear: both;'>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- links1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-0810613228728448"
+     data-ad-slot="7398393949"
+     data-ad-format="link"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+							
+
+{% for nav_item in pages | map(attribute="page") | rejectattr("meta.homepage") | list | paginate(page=page) %}
+<li class="ilovewp-post ilovewp-post-archive ilovewp-post-1 clearfix post-2659 post type-post status-publish format-standard hentry category-uncategorized tag-biden tag-breitbart tag-daily tag-joe tag-muslim tag-news tag-president tag-surge tag-trump tag-university">
+
+
+	<article>
+
+		{% if nav_item.meta.featured_image %}
+		<div class="post-cover-wrapper">
+
+			<div class="post-cover">
+
+				<a href="{{ nav_item.url|url }}" title="{{ nav_item.title }}">
+
+				<img width="240" max-height="200" src="{{ nav_item.meta.featured_image }}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
+				</a>
+
+			</div><!-- .post-cover -->
+
+		</div><!-- .post-cover-wrapper -->
+		{% endif %}
+
+		<div class="post-preview">
+
+			<h2 class="title-post"><a href="{{ nav_item.url|url }}" rel="bookmark">{{ nav_item.title }}</a></h2>			<p class="post-excerpt">{{ nav_item.content|truncate }}</p>
+
+			<p class="post-meta">
+<!--
+				<span class="posted-by">By <a href="https://thefreedompatriot.com/author/wpellowski/" title="Posts by William Pellowski" rel="author">William Pellowski</a></span>
+
+				<span class="posted-on">Published <time class="entry-date published" datetime="2020-03-23T22:36:09+00:00"><a href="https://thefreedompatriot.com/2020/03/23/the-proverbial-equally-hungry-and-provides-gun-safety-courses/" title="The Proverbial Equally Hungry And Provides Gun Safety Courses.">March 23, 2020</a></time></span>
+-->
+				<span class="post-meta-category"><a href="https://thefreedompatriot.com/category/uncategorized/" rel="category tag">Uncategorized</a></span>
+
+							</p><!-- .post-meta -->
+
+		</div><!-- .post-preview -->
+
+	
+
+	</article>
+
+</li><!-- .ilovewp-post .ilovewp-post-archive .clearfix -->
+{% endfor %}
+</ul>
+
+
+<nav class="navigation posts-navigation" role="navigation">
+    <h2 class="screen-reader-text">Posts navigation</h2>
+    <div class="nav-links">
+    {% if page.page_num %}
+        {% if not page.last_page %}
+        <div class="nav-previous">
+            <a href="{{ config.site_url|url }}page/{{ page.page_num + 1 }}/">
+                "Older posts"
+            </a>
+        </div>
+        {% endif %}
+        {% if page.page_num == 2 %}
+        <div class="nav-next">
+            <a href="{{ config.site_url|url }}">
+                "Newer posts"
+            </a>
+        </div>
+        {% elif page.page_num > 2 %}
+        <div class="nav-next">
+            <a href="{{ config.site_url|url }}page/{{ page.page_num - 1 }}/">
+                "Newer posts"
+            </a>
+        </div>
+        {% endif %}
+    {% endif %}
+    </div>
+</nav>
+
+                    <?php else : ?>
+            
+                        <?php get_template_part( 'template-parts/content', 'none' ); ?>
+            
+                    <?php endif; ?>
+
+                </div><!-- .site-content-wrapper .clearfix -->
