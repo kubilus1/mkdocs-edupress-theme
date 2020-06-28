@@ -1,7 +1,7 @@
 
-					<div class="site-content-wrapper clearfix">
-						<p class="widget-title">Recent Posts</p>						
-						<ul id="recent-posts" class="ilovewp-posts ilovewp-posts-archive clearfix">
+<div class="site-content-wrapper clearfix">
+    <p class="widget-title">Recent Posts</p>						
+    <ul id="recent-posts" class="ilovewp-posts ilovewp-posts-archive clearfix">
 
 {% if config.theme.google_adsense %}
 <div class='code-block code-block-2' style='margin: 8px 0; clear: both;'>
@@ -26,37 +26,39 @@
 
 		{% if nav_item.meta.featured_image %}
 		<div class="post-cover-wrapper">
-
 			<div class="post-cover">
-
 				<a href="{{ nav_item.url|url }}" title="{{ nav_item.title }}">
-
 				<img width="240" max-height="200" src="{{ nav_item.meta.featured_image }}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
 				</a>
-
 			</div><!-- .post-cover -->
-
 		</div><!-- .post-cover-wrapper -->
 		{% endif %}
 
 		<div class="post-preview">
-
 			<h2 class="title-post"><a href="{{ nav_item.url|url }}" rel="bookmark">{{ nav_item.title }}</a></h2>			<p class="post-excerpt">{{ nav_item.content|truncate }}</p>
 
 			<p class="post-meta">
-<!--
-				<span class="posted-by">By <a href="https://thefreedompatriot.com/author/wpellowski/" title="Posts by William Pellowski" rel="author">William Pellowski</a></span>
+                {% if nav_item.meta.author %}
+				<span class="posted-by">By <a
+                      href="{{ page.site_url }}/author/{{ nav_item.meta.author|url }}"
+                      title="Posts by {{ nav_item.meta.author }}"
+                        rel="author">{{ nav_item.meta.author }}</a></span>
+                {% endif %}
 
-				<span class="posted-on">Published <time class="entry-date published" datetime="2020-03-23T22:36:09+00:00"><a href="https://thefreedompatriot.com/2020/03/23/the-proverbial-equally-hungry-and-provides-gun-safety-courses/" title="The Proverbial Equally Hungry And Provides Gun Safety Courses.">March 23, 2020</a></time></span>
--->
-				<span class="post-meta-category"><a href="https://thefreedompatriot.com/category/uncategorized/" rel="category tag">Uncategorized</a></span>
+                {% if nav_item.meta.date %}
+				<span class="posted-on">Published <time 
+                      class="entry-date published" datetime="{{ nav_item.file.datestamp }}"><a
+                               href="{{ nav_item.url|url }}"
+                               title="{{ nav_item.title }}">{{ nav_item.file.datestamp.strftime("%B %d, %Y") }}</a></time></span>
+                {% endif %}
+                {% if nav_item.meta.category %}
+                <span class="post-meta-category"><a href="{{ page.site_url
+                        }}/category/{{ nav_item.meta.category|url }}/"
+                            rel="category tag">{{ nav_item.meta.category }}</a></span>
+                {% endif %}
 
-							</p><!-- .post-meta -->
-
+            </p><!-- .post-meta -->
 		</div><!-- .post-preview -->
-
-	
-
 	</article>
 
 </li><!-- .ilovewp-post .ilovewp-post-archive .clearfix -->
@@ -92,10 +94,5 @@
     </div>
 </nav>
 
-                    <?php else : ?>
-            
-                        <?php get_template_part( 'template-parts/content', 'none' ); ?>
-            
-                    <?php endif; ?>
 
-                </div><!-- .site-content-wrapper .clearfix -->
+</div><!-- .site-content-wrapper .clearfix -->

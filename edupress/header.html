@@ -16,22 +16,34 @@
 <link rel='stylesheet' id='wp-block-library-css'  href='{{ config.site_url|url }}css/dist/block-library/style.min.css?ver=5.0.4' type='text/css' media='all' />
 <link rel='stylesheet' id='edupress-style-css'  href='{{ config.site_url|url }}style.css?ver=5.0.4' type='text/css' media='all' />
 <link rel='stylesheet' id='edupress-webfonts-css'  href='//fonts.googleapis.com/css?family=Lato%3A400%2C400i%2C700%2C700i%7CRoboto%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' id='edupress-style-css'  href='{{ config.site_url|url }}css/social.css' type='text/css' media='all' />
+
+
+
 <script type='text/javascript' src='{{ config.site_url|url }}js/jquery/jquery.js?ver=1.12.4'></script>
 <script type='text/javascript' src='{{ config.site_url|url }}js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
 <script type='text/javascript' src='{{ config.site_url|url }}js/jquery.slicknav.min.js'></script>
 <script type='text/javascript' src='{{ config.site_url|url }}js/superfish.min.js'></script>
 <script type='text/javascript' src='{{ config.site_url|url }}js/jquery.flexslider.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{{ config.site_url|url }}wlwmanifest.xml" /> 
 
+
+{% if config.theme.background_img %}
 <style type="text/css" id="custom-background-css">
-body.custom-background { background-image: url("{{ config.site_url|url }}images/eagleeagleeagle3.jpg"); background-position: left top; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; }
+body.custom-background { background-image: url("{{ config.site_url|url }}{{ config.theme.background_img }}"); background-position: left top; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; }
 </style>
+{% endif %}
+
+{% if config.theme.icon_img %}
+<link rel="icon" href="{{ config.site_url|url }}{{ config.theme.icon_img }}" sizes="32x32" />
+<link rel="icon" href="{{ config.site_url|url }}{{ config.theme.icon_img }}" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="{{ config.site_url|url }}{{ config.theme.icon_img }}" />
+<link rel="msapplication-TileImage" href="{{ config.site_url|url }}{{ config.theme.icon_img }}" />
+{% endif %}
 
 
-<link rel="icon" href="https://i1.wp.com/thefreedompatriot.com/wp-content/uploads/sites/3/2017/03/eagleicon2.jpg?fit=32%2C32&#038;ssl=1" sizes="32x32" />
-<link rel="icon" href="https://i1.wp.com/thefreedompatriot.com/wp-content/uploads/sites/3/2017/03/eagleicon2.jpg?fit=192%2C192&#038;ssl=1" sizes="192x192" />
-<link rel="apple-touch-icon-precomposed" href="https://i1.wp.com/thefreedompatriot.com/wp-content/uploads/sites/3/2017/03/eagleicon2.jpg?fit=180%2C180&#038;ssl=1" />
-<meta name="msapplication-TileImage" content="https://i1.wp.com/thefreedompatriot.com/wp-content/uploads/sites/3/2017/03/eagleicon2.jpg?fit=270%2C270&#038;ssl=1" />
 </head>
 
 
@@ -48,30 +60,36 @@ body.custom-background { background-image: url("{{ config.site_url|url }}images/
 		<div class="wrapper wrapper-header clearfix">
 			<div id="site-header-main">
 				<div class="site-branding clearfix">
-
 					<p class="site-title"><a href="{{ config.site_url|url }}" rel="home">{{ config.site_name }}</a></p>
 					<p class="site-description">{{ config.site_description }}</p>
+                </div><!-- .site-branding -->
 
-									</div><!-- .site-branding -->
 
-	
+						<nav class="social-navigation" role="navigation">
+							<div class="social-menu-wrap">
+					<ul id="menu-social-media" class="social-menu"><li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="http://www.facebook.com"><span>Facebook</span></a></li>
+					<li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="http://www.linkedin.com"><span>LinkedIn</span></a></li>
+					<li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="http://www.twitter.com"><span>Twitter</span></a></li>
+					<li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="http://www.instagram.com"><span>Instagram</span></a></li>
+					</ul>
+							</div>
+						</nav>
 
-				<div class="social-links"><ul id="menu-social-media" class="menu"><li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="http://www.facebook.com"><span class="screen-reader-text">Facebook</span></a></li>
-<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="http://www.linkedin.com"><span class="screen-reader-text">LinkedIn</span></a></li>
-<li id="menu-item-342" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a href="http://www.twitter.com"><span class="screen-reader-text">Twitter</span></a></li>
-<li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a href="http://www.instagram.com"><span class="screen-reader-text">Instagram</span></a></li>
-</ul></div>	
+				<!--
+                <nav class="social-navigation" >
+				<div class="social-links">
+                    <ul id="menu-social-media" class="social-menu">
+                        <li id="menu-item-16" class="menu-item"><a href="http://www.facebook.com"><span class="fa fa-facebook screen-reader-text">Facebook</span></a></li>
+                        <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="http://www.linkedin.com"><span class="fa fa-linkedin screen-reader-text">LinkedIn</span></a></li>
+                        <li id="menu-item-342" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a href="http://www.twitter.com"><span class="screen-reader-text">Twitter</span></a></li>
+                        <li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a href="http://www.instagram.com"><span class="screen-reader-text">Instagram</span></a></li>
+                    </ul>
+                </div>	
+                </nav>
+				-->
 
 			</div><!-- #site-header-main -->
-
-
-
-	        			
-
 		</div><!-- .wrapper .wrapper-header .clearfix -->
-
-
-
 	</header><!-- .site-header -->
 
 
